@@ -12,8 +12,8 @@ function sideNav(){
                         <div class="project" id="inbox">
                             <div></div>
                         </div>
-                        <div class="project">T</div>
-                        <div class="project">T</div>
+                        <div class="project" id="add-project">+</div>
+                        
                     </div>`;
     nav.innerHTML = navItems;
 
@@ -51,6 +51,11 @@ function sidebar(){
 function todos(){
     const todoContainer = document.createElement("div");
     todoContainer.classList.add("todo-container");
+    todoContainer.setAttribute('id', 'todo-container')
+    const todoProject = document.createElement('div');
+
+    todoProject.classList.add("todo-project","active");
+    todoProject.setAttribute("data-name", "inbox")
 
     let todos = `<div class="dates">
     <div class="date"> 11/11/22</div>
@@ -70,15 +75,31 @@ function todos(){
       </div>
     </div>`;
 
-    todoContainer.innerHTML = todos;
+    todoProject.innerHTML = todos;
+    todoContainer.append(todoProject)
 
     return todoContainer;
+}
+
+function newProject(){
+
+    const newProject = document.createElement('div');
+    newProject.classList.add('new-project');
+    newProject.setAttribute("id", "new-project");
+
+    let form = `<label for="new-project">Project Name</label>
+                <input type="text" id="new-name">
+                <button id="create-project">Create</button>`;
+    newProject.innerHTML = form;
+
+    return newProject;
 }
 
 function main(){
     const main = document.createElement('div');
     main.classList.add('main');
-    main.append(sideNav(),todos(), sidebar());
+    main.setAttribute("id", "main")
+    main.append(sideNav(),todos(), sidebar(), newProject());
 
     return main;
 }
