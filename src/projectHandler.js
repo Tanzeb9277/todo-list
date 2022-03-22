@@ -2,16 +2,33 @@ let active = document.querySelectorAll('.active');
 let form = document.querySelector("#new-project");
 let add = document.querySelector("#add-project");
 
-export default function listner(){
+export default function projectHandler(){
     document.addEventListener('click',function(e){
         if(e.target && e.target.id== 'add-project'){
             document.querySelector("#new-project").style ="display:flex";
+            console.log(e.target.id)
          }
          if(e.target && e.target.id== 'create-project'){
             let project = createProject();
             addProject(project);
+            
+         }if(e.target && e.target.classList== 'project'){
+            console.log(e.target.id)
+            let name = e.target.id;
+            displayProject(name);
+            
+            
          }
+         
      });
+}
+
+function displayProject(name){
+    let active = document.querySelectorAll(".todo-project");
+    for(let i = 0; i< active.length; i++){
+        active[i].classList.remove('active');
+    }
+    document.querySelector(`[data-name = '${name}']`).classList.add('active');
 }
 
 function createProject(){
@@ -28,8 +45,9 @@ function addProject(project){
     let projects = document.querySelectorAll('.project');
     for(let i = 0; i< projects.length; i++){
         projects[i].addEventListener('click', function(e){
+            console.log(e.currentTarget.classList == 'project')
             let name = e.currentTarget.id;
-            let id = project.getAttribute('id');
+            let active = document.querySelectorAll(".todo-project");
             for(let i = 0; i< active.length; i++){
                 active[i].classList.remove('active');
             }

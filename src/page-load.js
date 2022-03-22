@@ -31,9 +31,9 @@ function sidebar(){
                     <label for="title">Title</lable>
                     <input type="text" id="title">
                     <label for="desc">Description</lable>
-                    <input type="text" id="author">
+                    <input type="text" id="desc">
                     <label for="date">Due Date</lable>
-                    <input type="date" id="pages">
+                    <input type="date" id="date">
                     <label for="priority">Slecet Priority:</label>
                     <select name="priority" id="priority">
                     <option value="High">High</option>
@@ -41,7 +41,7 @@ function sidebar(){
                     <option value="Low">Low</option>
                     </select>
                 </form>
-                <button type="button" form="add-todo" id="new-todo">Add Todo</button>`;
+                <button type="reset" form="add-todo" id="new-todo">Add Todo</button>`;
 
                 sidebar.innerHTML = form;
 
@@ -59,9 +59,9 @@ function todos(){
 
     let todos = `<div class="dates">
     <div class="date"> 11/11/22</div>
-    <div class="todo">
+    <div class="todo" id="thisTodo">
       <div class="todo-header">
-        Title
+        Example Title
         <select name="priority" class="todo-priority">
         <option value="High">High Priority</option>
         <option value="Medium">Medium Priority</option>
@@ -69,9 +69,10 @@ function todos(){
       </select>
       </div>
       <div class="todo-body">
-        <p class="desc">Description</p>
+        <p class="desc">Example Description</p>
      
       <button class="complete">Complete</button>
+      <button class="remove" data-id="thisTodo">Remove</button>
       </div>
     </div>`;
 
