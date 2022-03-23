@@ -7,7 +7,7 @@ function sideNav(){
     const nav = document.createElement('div');
     nav.classList.add('nav');
 
-    let navItems = `<div class="logo">Logo</div>
+    let navItems = `<div class="logo">2do</div>
                     <div id="projects">
                         <div class="project" id="inbox">
                             <div></div>

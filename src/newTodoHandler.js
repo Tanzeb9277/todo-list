@@ -1,6 +1,6 @@
 const dates = [];
 
-export default function newTodoHandler(){
+function newTodoHandler(){
     document.addEventListener('click',function(e){
         if(e.target && e.target.id== 'new-todo'){
             
@@ -11,10 +11,19 @@ export default function newTodoHandler(){
 
             todoFactory(title, desc, date, priority)
          }
+
+
          
         
          
      });
+}
+
+function removeDate(date){
+    const index = array.indexOf(date);
+    if (index > -1) {
+    dates.splice(index, 1); // 2nd parameter means remove one item only
+}
 }
 
 function todoFactory(title, desc, date, priority){
@@ -73,3 +82,4 @@ function todoFactory(title, desc, date, priority){
     }
 }
 
+export {newTodoHandler, removeDate};

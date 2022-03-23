@@ -103,7 +103,7 @@ form input, #priority{
 }
 .dates{
   height:auto;
-  background:grey;
+  background:#e3dcdc;
   display: grid;
   grid-template-rows:100px;
   grid-auto-rows: 200px;
@@ -142,7 +142,7 @@ form input, #priority{
 .todo-priority{
   border:none;
   background:black;
-  color:red;
+  color:rgb(255, 255, 255);
   float:right;
 }
 
